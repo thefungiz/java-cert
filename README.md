@@ -18,18 +18,19 @@ A full description of the markdown syntax can be found here - https://www.markdo
 TODO
 
 ### Topics
-- [ ] Understanding Java Technology and environment
-- [ ] Describe Java Technology and the Java development Identify key features of the Java language
-- [ ] Creating a Simple Java Program
-- [ ] Create an executable Java program with a main class Compile and run a Java program from the command line Create and import packages
-- [ ] Working with Java Primitive Data Types and String APIs
+- [ ] Describe Java Technology and the Java development 
+- [ ] Identify key features of the Java language
+- [ ] Create an executable Java program with a main class 
+- [ ] Compile and run a Java program from the command line Create and import packages
 - [ ] Identify the scope of variables
 - [ ] Use local variable type inference
 - [ ] Create and manipulate Strings
 - [ ] Manipulate data using the StringBuilder class and its methods Using Operators and Decision Constructs
 - [ ] Use Java control statements including if, if/else, switch
 - [ ] Working with Java Arrays
-- [ ] Declare, instantiate, initialize and use a one-dimensional array Declare, instantiate, initialize and use a two-dimensional array Describing and using Objects and Classes
+- [ ] Declare, instantiate, initialize and use a one-dimensional array 
+- [ ] Declare, instantiate, initialize and use a two-dimensional array 
+- [ ] Describing and using Objects and Classes
 - [ ] Define the structure of a Java class
 - [ ] Read or write to object fields
 - [ ] Creating and Using Methods
@@ -50,6 +51,8 @@ TODO
 - [ ] Create and implement interfaces
 - [ ] Declare and use List and ArrayList instances Understanding Lambda Expressions Handling Exceptions
 - [ ] Create try-catch blocks and determine how exceptions alter program flow Create and invoke a method that throws an exception
-- [ ] Understanding Modules
 - [ ] Describe the Modular JDK
 - [ ] Declare modules and enable access between modules Describe how a modular project is compiled and run
+
+![](objectives_chapters1.png)
+![](objectives_chapters2.png)
