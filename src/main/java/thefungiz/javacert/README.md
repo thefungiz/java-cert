@@ -12,7 +12,8 @@
 - [ ] Manipulate data using the StringBuilder class and its methods Using Operators and Decision Constructs
 - [ ] Use Java control statements including if, if/else, switch
 - [ ] Working with Java Arrays
-- [ ] Declare, instantiate, initialize and use a one-dimensional array Declare, instantiate, initialize and use a two-dimensional array Describing and using Objects and Classes
+- [X] Declare, instantiate, initialize and use a one-dimensional array 
+- [ ] Declare, instantiate, initialize and use a two-dimensional array Describing and using Objects and Classes
 - [ ] Define the structure of a Java class
 - [ ] Read or write to object fields
 - [ ] Creating and Using Methods
