@@ -2,14 +2,18 @@
 
 ### Topics
 - [ ] Understanding Java Technology and environment
-- [ ] Describe Java Technology and the Java development Identify key features of the Java language
+- [ ] Describe Java Technology and the Java development 
+- [ ] Identify key features of the Java language
 - [X] Creating a Simple Java Program
-- [X] Create an executable Java program with a main class Compile and run a Java program from the command line Create and import packages
+- [X] Create an executable Java program with a main class 
+- [ ] Compile and run a Java program from the command line 
+- [ ] Create and import packages
 - [ ] Working with Java Primitive Data Types and String APIs
 - [ ] Identify the scope of variables
 - [ ] Use local variable type inference
 - [ ] Create and manipulate Strings
-- [ ] Manipulate data using the StringBuilder class and its methods Using Operators and Decision Constructs
+- [x] Manipulate data using the StringBuilder class and its methods 
+- [ ] Using Operators and Decision Constructs
 - [ ] Use Java control statements including if, if/else, switch
 - [ ] Working with Java Arrays
 - [ ] Declare, instantiate, initialize and use a one-dimensional array Declare, instantiate, initialize and use a two-dimensional array Describing and using Objects and Classes
