@@ -3,7 +3,7 @@
 ### Topics
 - [ ] Understanding Java Technology and environment
 - [ ] Describe Java Technology and the Java development Identify key features of the Java language
-- [ ] Creating a Simple Java Program
+- [x] Creating a Simple Java Program
 - [ ] Create an executable Java program with a main class Compile and run a Java program from the command line Create and import packages
 - [ ] Working with Java Primitive Data Types and String APIs
 - [ ] Identify the scope of variables
@@ -18,13 +18,13 @@
 - [ ] Creating and Using Methods
 - [ ] Create methods and constructors with arguments and return values Create and invoke overloaded methods
 - [ ] Apply the static keyword to methods and fields
-- [ ] Applying Encapsulation
+- [x] Applying Encapsulation
 - [ ] Apply access modifiers
 - [ ] Declare and initialize variables (including casting and promoting primitive data types)
 - [ ] Use Java operators including the use of parentheses to override operator precedence
 - [ ] Create and use do/while, while, for and for each loops, including nested loops, use break and continue statements
 - [ ] Declare and instantiate Java objects, and explain objects’ lifecycles (including creation, dereferencing by reassignment, and garbage collection)
-- [ ] Apply encapsulation principles to a class
+- [x] Apply encapsulation principles to a class
 - [ ] Reusing Implementations Through Inheritance
 - [ ] Create and use subclasses and superclasses Create and extend abstract classes
 - [ ] Enable polymorphism by overriding methods
