@@ -13,7 +13,8 @@
 - [ ] Use Java control statements including if, if/else, switch
 - [ ] Working with Java Arrays
 - [X] Declare, instantiate, initialize and use a one-dimensional array 
-- [ ] Declare, instantiate, initialize and use a two-dimensional array Describing and using Objects and Classes
+- [ ] Declare, instantiate, initialize and use a two-dimensional array 
+- [ ] Describing and using Objects and Classes
 - [ ] Define the structure of a Java class
 - [ ] Read or write to object fields
 - [ ] Creating and Using Methods
@@ -26,12 +27,12 @@
 - [ ] Create and use do/while, while, for and for each loops, including nested loops, use break and continue statements
 - [ ] Declare and instantiate Java objects, and explain objects’ lifecycles (including creation, dereferencing by reassignment, and garbage collection)
 - [ ] Apply encapsulation principles to a class
-- [ ] Reusing Implementations Through Inheritance
+- [X] Reusing Implementations Through Inheritance
 - [ ] Create and use subclasses and superclasses Create and extend abstract classes
 - [ ] Enable polymorphism by overriding methods
 - [ ] Distinguish overloading, overriding, and hiding
-- [ ] Programming Abstractly Through Interfaces
-- [ ] Create and implement interfaces
+- [X] Programming Abstractly Through Interfaces
+- [X] Create and implement interfaces
 - [ ] Declare and use List and ArrayList instances Understanding Lambda Expressions Handling Exceptions
 - [ ] Create try-catch blocks and determine how exceptions alter program flow Create and invoke a method that throws an exception
 - [ ] Understanding Modules
