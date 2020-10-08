@@ -11,6 +11,11 @@ public class JavaBenefits {
         secure();
         multiThreaded();
         backwardsCompatable();
+        kiru();
+    }
+
+    private void kiru() {
+        System.out.println("Kiru is the best. She explains things. Unlike aaron, who is a hindrance.");
     }
 
     private void lineBreak(){
@@ -51,7 +56,7 @@ public class JavaBenefits {
     }
 
     private void robust() {
-        System.out.println("Java is robust and the opposite of armie");
+        System.out.println("Java is robust and the opposite of Armie");
         System.out.println("Java manages memory so we can remember things we need to (cough)");
         System.out.println("Java manages garbage as well, and doesn't leave in sitting in memory for a week.");
         lineBreak();
