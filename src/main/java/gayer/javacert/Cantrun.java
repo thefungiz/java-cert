@@ -1,6 +1,6 @@
 package gayer.javacert;
 
-import gayer.javacert.chapter1.StringBuilderDebauchery;
+import gayer.javacert.justmytype.StringBuilderDebauchery;
 
 public class Cantrun {
 
