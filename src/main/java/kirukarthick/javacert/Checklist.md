@@ -17,7 +17,7 @@
 - [ ] Read or write to object fields
 - [ ] Creating and Using Methods
 - [ ] Create methods and constructors with arguments and return values Create and invoke overloaded methods
-- [ ] Apply the static keyword to methods and fields
+- [x] Apply the static keyword to methods and fields
 - [x] Applying Encapsulation
 - [ ] Apply access modifiers
 - [ ] Declare and initialize variables (including casting and promoting primitive data types)
