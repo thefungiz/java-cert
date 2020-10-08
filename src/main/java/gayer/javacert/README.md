@@ -7,8 +7,8 @@ javac src/main/java/gayer/javacert/chapter1/Chapter1.java
 
 javac -d classes  src/main/java/gayer/javacert/chapter1/*
 
-java -cp ./src/main/java/  gayer.javacert.chapter1.Chapter1 asfa afa
+java -cp ./src/main/java/  gayer.javacert.justmytype.Chapter1 asfa afa
 
-java -cp ./src/main/java/  gayer.javacert.chapter1.Chapter1 asfa afa
+java -cp ./src/main/java/  gayer.javacert.justmytype.Chapter1 asfa afa
 
 ```

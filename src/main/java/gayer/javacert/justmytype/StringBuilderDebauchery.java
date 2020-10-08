@@ -1,4 +1,4 @@
-package gayer.javacert.chapter1;
+package gayer.javacert.justmytype;
 
 import static gayer.javacert.JamesPrints.hollerBack;
 

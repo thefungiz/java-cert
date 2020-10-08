@@ -1,4 +1,4 @@
-package gayer.javacert.chapter1;
+package gayer.javacert.justmytype;
 
 public class Chapter1 {
 

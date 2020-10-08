@@ -3,7 +3,7 @@
 ### Topics
 - [ ] Understanding Java Technology and environment
 - [ ] Describe Java Technology and the Java development 
-- [ ] Identify key features of the Java language
+- [X] Identify key features of the Java language
 - [X] Creating a Simple Java Program
 - [X] Create an executable Java program with a main class 
 - [ ] Compile and run a Java program from the command line 

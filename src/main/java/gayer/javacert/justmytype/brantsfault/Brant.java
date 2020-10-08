@@ -1,4 +1,4 @@
-package gayer.javacert.chapter1.brantsfault;
+package gayer.javacert.justmytype.brantsfault;
 
 public class Brant {
 
