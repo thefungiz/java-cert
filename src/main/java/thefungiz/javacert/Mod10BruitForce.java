@@ -8,7 +8,7 @@ public class Mod10BruitForce {
 
   public static void main(String[] args) {
     int count = 0;
-    for (int i = 0; i < 1_000_000_000 || COUNT_MAX >= count; i++) {
+    for (int i = 400_000_000; i < 1_000_000_000 || COUNT_MAX >= count; i++) {
       String routingNumber = StringUtils.leftPad(String.valueOf(i), 9, '0');
       if (isMod10Valid(routingNumber)) {
         count++;
