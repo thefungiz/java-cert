@@ -6,8 +6,11 @@ java -jar james.jar
 ```
 
 #Additional:
-See contents of war:
+See contents of jar/war:
 `jar -tf james.jar`
 
-Extract contents of war:
+Extract contents of jar/war:
 `jar -xvf james.jar`
+
+Extract a single file from a jar/war:
+`jar xvf james.jar test.png`
