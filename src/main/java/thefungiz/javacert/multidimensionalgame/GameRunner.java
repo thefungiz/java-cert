@@ -9,7 +9,7 @@ import static java.util.List.*;
 public class GameRunner {
     public static void main(String[] args) {
         TicTacToeGame game = new TicTacToeGame(SetupHelper.initPlayers(), SetupHelper.initCells());
-        while (game.getWinner() == null) {
+        while (game.getWinner() == null) { // TODO add tie!!
             Player currentPlayer = game.getNextPlayer();
             System.out.println(game.generateDisplayBoard());
             game.performPlayerTurn(currentPlayer);
