@@ -15,7 +15,7 @@ public class GameRunner {
             game.performPlayerTurn(currentPlayer);
         }
         System.out.println("Winner was " + game.getWinner().getIcon());
-        game.generateDisplayBoard();
+        System.out.println(game.generateDisplayBoard());
     }
 }
 
@@ -36,11 +36,10 @@ class TicTacToeGame {
 
     String generateDisplayBoard() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int row = 0; row < cells.length; row++) {
+        for (Cell[] cellRow : cells) {
             stringBuilder.append("\n|");
-            for (int column = 0; column < cells[0].length; column++) {
-                stringBuilder.append(cells[row][column].display());
-                stringBuilder.append("|");
+            for (Cell cell : cellRow) {
+                stringBuilder.append(cell.display()).append("|");
             }
         }
         return stringBuilder.toString();
@@ -69,7 +68,7 @@ class TicTacToeGame {
     }
 
     private Cell getCell(int id) {
-        return cells[id / 3][id % 3 - 1];
+        return cells[(id - 1) / 3][(id - 1) % 3];
     }
 }
 
@@ -122,7 +121,7 @@ class Line {
         Player winner = null;
         if (cells.get(0).getPlayer() != null
           && cells.get(0).getPlayer() == cells.get(1).getPlayer()
-          && cells.get(1).getPlayer() == cells.get(21).getPlayer()) {
+          && cells.get(1).getPlayer() == cells.get(2).getPlayer()) {
             winner = cells.get(0).getPlayer();
         }
         return winner;
