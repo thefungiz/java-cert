@@ -3,81 +3,57 @@ package thefungiz.javacert.multidimensionalgame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
+import static java.util.List.*;
 
 public class GameRunner {
-
     public static void main(String[] args) {
-        Cell[][] board = new Cell[3][3];
-        for (int i = 0; i < 3; i++) {
-            final int finalI = i;
-            IntStream.range(0, 2).forEach(it -> board[finalI][it] = new Cell(finalI * 3 + it + 1));
-        }
-        TicTacToeGame game = new TicTacToeGame(
-                new Player[] { new Player('X'), new Player('O') },
-                board);
-        while (game.getWinner() == null) {
+        TicTacToeGame game = new TicTacToeGame(SetupHelper.initPlayers(), SetupHelper.initCells());
+        while (game.getWinner() == null) { // TODO add tie!!
             Player currentPlayer = game.getNextPlayer();
-            game.displayBoard();
-            game.playerSelect(currentPlayer);
+            System.out.println(game.generateDisplayBoard());
+            game.performPlayerTurn(currentPlayer);
         }
         System.out.println("Winner was " + game.getWinner().getIcon());
+        System.out.println(game.generateDisplayBoard());
     }
 }
 
 class TicTacToeGame {
 
     private Player[] players;
+    private Player currentPlayer;
     private Cell[][] cells;
     private List<Line> lines;
-    private Player currentPlayer;
 
-    public TicTacToeGame(Player[] players, Cell[][] cells) {
-        if (cells == null || cells[0] == null || cells.length != cells[0].length) { throw new RuntimeException("Invalid table size"); }
+    TicTacToeGame(Player[] players, Cell[][] cells) {
+        if (cells == null || cells[0] == null || (cells.length != cells[0].length && cells.length != 3)) { throw new RuntimeException("Invalid table size"); }
         this.players = players;
+        this.currentPlayer = players[0];
         this.cells = cells;
-        this.lines = initLines(cells);
+        this.lines = SetupHelper.initLines(cells);
     }
 
-    private static List<Line> initLines(Cell[][] cells) {
-        List<Line> lines = new ArrayList<>();
-        for (int i = 0; i < cells.length; i++) {
-            final int finalI = i;
-            lines.add(new Line(IntStream.range(0, cells.length).mapToObj(it -> cells[finalI][it]).collect(Collectors.toList())));
-        }
-        for (int i = 0; i < cells.length; i++) {
-            final int finalI = i;
-            lines.add(new Line(IntStream.range(0, cells.length).mapToObj(it -> cells[it][finalI]).collect(Collectors.toList())));
-        }
-        lines.add(new Line(IntStream.range(0, cells.length).mapToObj(it -> cells[it][it]).collect(Collectors.toList())));
-        // todo add the final diagonal
-        return lines;
-    }
-
-    public String displayBoard() {
+    String generateDisplayBoard() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int border = 0; border < cells.length; border++) stringBuilder.append("===");
-        for (int row = 0; row < cells.length; row++) {
-            stringBuilder.append("|");
-            for (int column = 0; column < cells[0].length; column++) {
-                stringBuilder.append(cells[row][column].display());
-                stringBuilder.append("|");
+        for (Cell[] cellRow : cells) {
+            stringBuilder.append("\n|");
+            for (Cell cell : cellRow) {
+                stringBuilder.append(cell.display()).append("|");
             }
-            for (int border = 0; border < cells.length; border++) stringBuilder.append("===");
         }
         return stringBuilder.toString();
     }
 
-    public Player getNextPlayer() {
+    Player getNextPlayer() {
         currentPlayer = currentPlayer == players[0] ? players[1] : players[0]; // TODO do this better
         return currentPlayer;
     }
 
-    public void playerSelect(Player player) {
+    void performPlayerTurn(Player player) {
         int choice = -1;
         do {
-            int potentialChoice = InputHelper.getValidInput(player.getIcon(), cells.length ^ 2);
+            int potentialChoice = InputHelper.getValidInput(player.getIcon());
             if (!getCell(potentialChoice).isChosen()) {
                 choice = potentialChoice;
             } else {
@@ -87,12 +63,12 @@ class TicTacToeGame {
         getCell(choice).setPlayer(player);
     }
 
-    public Player getWinner() {
+    Player getWinner() {
         return lines.stream().filter(it -> it.getWinner() != null).map(Line::getWinner).findFirst().orElse(null);
     }
 
     private Cell getCell(int id) {
-        return cells[id / cells.length][id % cells.length];
+        return cells[(id - 1) / 3][(id - 1) % 3];
     }
 }
 
@@ -101,23 +77,23 @@ class Cell {
     private int id;
     private Player player;
 
-    public Cell(int id) {
+    Cell(int id) {
         this.id = id;
     }
 
-    public boolean isChosen() {
+    boolean isChosen() {
         return player != null;
     }
 
-    public Player getPlayer() {
+    Player getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    void setPlayer(Player player) {
         this.player = player;
     }
 
-    public String display() {
+    String display() {
         return isChosen() ? String.valueOf(player.getIcon()) : String.valueOf(id);
     }
 }
@@ -125,11 +101,11 @@ class Cell {
 class Player {
     private char icon;
 
-    public Player(char icon) {
+    Player(char icon) {
         this.icon = icon;
     }
 
-    public char getIcon() {
+    char getIcon() {
         return icon;
     }
 }
@@ -137,41 +113,62 @@ class Player {
 class Line {
     private List<Cell> cells;
 
-    public Line(List<Cell> cells) {
+    Line(List<Cell> cells) {
         this.cells = cells;
     }
 
-    public Player getWinner() {
+    Player getWinner() {
         Player winner = null;
-        if (!cells.stream().allMatch(it -> it.getPlayer() == null)
-                && cells.stream().allMatch(it -> cells.get(0).equals(it)))
+        if (cells.get(0).getPlayer() != null
+          && cells.get(0).getPlayer() == cells.get(1).getPlayer()
+          && cells.get(1).getPlayer() == cells.get(2).getPlayer()) {
             winner = cells.get(0).getPlayer();
+        }
         return winner;
     }
 }
 
 class InputHelper {
-    public static int getValidInput(char playerIcon, int maxRange) {
+    static Scanner scanner = new Scanner(System.in);
+    static int getValidInput(char playerIcon) {
         int choice = -1;
-        try (Scanner scanner = new Scanner(System.in)) {
-            while (choice < 0) {
-                System.out.print("Player " + playerIcon + " select a number in range: ");
-                String input = scanner.next();
-                if (isInteger(input) && Integer.parseInt(input) <= maxRange) {
-                    choice = Integer.parseInt(input);
-                } else {
-                    System.out.println("Input invalid. Please try again.");
-                }
-            }
+        System.out.println("Player " + playerIcon + " select a number in range: ");
+        while (!scanner.hasNext("[1-9]")) { // thanks Kiru
+            System.out.println("Player " + playerIcon + " selection invalid. Please try again: ");
+            scanner.next();
         }
+        choice = Integer.parseInt(scanner.next());
         return choice;
-    }
-
-    private static boolean isInteger(String input) {
-        return input != null && input.matches("\\d+");
     }
 }
 
-class DisplayHelper {
+class SetupHelper {
+    static Player[] initPlayers() {
+        return new Player[] { new Player('X'), new Player('O') };
+    }
 
+    static Cell[][] initCells() {
+        Cell[][] cells = new Cell[3][3];
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 3; column++) {
+              cells[row][column] = new Cell(row * 3 + column + 1);
+            }
+        }
+        return cells;
+    }
+
+    static List<Line> initLines(Cell[][] cells) {
+        List<Line> lines = new ArrayList<>();
+        lines.add(new Line(of(cells[0][0], cells[0][1], cells[0][2])));
+        lines.add(new Line(of(cells[1][0], cells[1][1], cells[1][2])));
+        lines.add(new Line(of(cells[2][0], cells[2][1], cells[2][2])));
+
+        lines.add(new Line(of(cells[0][0], cells[1][0], cells[2][0])));
+        lines.add(new Line(of(cells[0][1], cells[1][1], cells[2][2])));
+        lines.add(new Line(of(cells[0][2], cells[1][2], cells[2][2])));
+
+        lines.add(new Line(of(cells[0][0], cells[1][1], cells[2][2])));
+        lines.add(new Line(of(cells[0][2], cells[1][1], cells[2][0])));
+        return lines;
+    }
 }
