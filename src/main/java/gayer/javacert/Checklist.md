@@ -6,8 +6,8 @@
 - [X] Identify key features of the Java language
 - [X] Creating a Simple Java Program
 - [X] Create an executable Java program with a main class 
-- [ ] Compile and run a Java program from the command line 
-- [ ] Create and import packages
+- [X] Compile and run a Java program from the command line 
+- [X] Create and import packages
 - [ ] Working with Java Primitive Data Types and String APIs
 - [ ] Identify the scope of variables
 - [ ] Use local variable type inference
