@@ -25,9 +25,7 @@ public class Runner {
     System.out.println(s.toString());
   }
 }
-
 interface Itable { default String getWhatItIsCalled() { return this.getClass().getSimpleName().toLowerCase(); }}
-
 class World {
   private static List<Residence> residences = Arrays.asList(new Apartment(), new House(), new Tree(), new Cave());
   private static List<Person> people = Arrays.asList(new Armie(), new Kelly(), new Jenifer(), new Kiru(), new Derek(), new Brant(), new James(), new Aaron());
@@ -46,15 +44,18 @@ interface Pronounable {
   String getPossessivePronoun();
 }
 interface Guy extends Pronounable {
-
   default String getPossessivePronoun() {
     return " his ";
   }
 }
 interface Gal extends Pronounable {
-
   default String getPossessivePronoun() {
     return " her ";
+  }
+}
+interface Dinogen extends Pronounable {
+  default String getPossessivePronoun() {
+    return " claw tap ";
   }
 }
 class Armie implements Person, Gal{}
@@ -63,7 +64,7 @@ class Jenifer implements Person, Gal{}
 class Kiru implements Person, Gal{}
 class Aaron implements Person, Guy{}
 class Derek implements Person, Guy{}
-class James implements Person, Guy{}
+class James implements Person, Dinogen{}
 class Brant implements Person, Guy{}
 
 interface Item extends Itable {}
@@ -84,7 +85,6 @@ interface Residence extends Itable {
   }
   List<Item> getItems();
 }
-
 class Apartment implements Residence {
 
   @Override
@@ -92,7 +92,6 @@ class Apartment implements Residence {
     return Arrays.asList(new Computer(), new Plate(), new Painting());
   }
 }
-
 class House implements Residence {
 
   @Override
@@ -100,7 +99,6 @@ class House implements Residence {
     return Arrays.asList(new Computer(), new Plate(), new Ghost());
   }
 }
-
 class Tree implements  Residence {
 
   @Override
@@ -108,7 +106,6 @@ class Tree implements  Residence {
     return Arrays.asList(new Leaf(), new Branch(), new Ghost());
   }
 }
-
 class Cave implements Residence {
 
   @Override
