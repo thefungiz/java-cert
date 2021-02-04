@@ -4,7 +4,10 @@ import gayer.javacert.justmytype.StringBuilderDebauchery;
 
 public class Cantrun {
 
-    public static void main(String[] args){
+    //public static void main(String[] args)
+    //public static void main(String args[])
+    public static void main(String... args)
+    {
         System.out.println("Info: Starting Cant Run Main");
 
         //Manipulate data using the StringBuilder class and its methods
